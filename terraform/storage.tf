@@ -1,5 +1,5 @@
-resource "google_storage_bucket" "auto-expire" {
-  name          = "auto-expiring-bucket"
+resource "google_storage_bucket" "raw-document-bucket" {
+  name          = "raw-document-bucket"
   location      = "us-central1"
   force_destroy = true
 
