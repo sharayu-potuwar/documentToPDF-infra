@@ -23,7 +23,7 @@ resource "google_pubsub_topic_iam_member" "doc-topic-member" {
   project = google_pubsub_topic.doc-topic.project
   topic = google_pubsub_topic.doc-topic.name
   role = "roles/storage.objectViewer"
-  member = "service-268852292565@gcp-sa-pubsub.iam.gserviceaccount.com"
+  member = "268852292565@gcp-sa-pubsub.iam.gserviceaccount.com"
 }
 
 
