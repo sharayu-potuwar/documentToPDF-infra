@@ -9,13 +9,23 @@ resource "google_pubsub_topic" "doc-topic" {
             delimiter = " "
         }
         minimum_object_create_time = "2024-01-01T00:00:00Z"
-        match_glob = "foo/**"
+        match_glob = ".docx"
     }
     platform_logs_settings {
         severity = "WARNING"
     }
+    
   }
 }
+
+
+resource "google_pubsub_topic_iam_member" "doc-topic-member" {
+  project = google_pubsub_topic.doc-topic.project
+  topic = google_pubsub_topic.doc-topic.name
+  role = "roles/storage.objectViewer"
+  member = "service-268852292565@gcp-sa-pubsub.iam.gserviceaccount.com"
+}
+
 
 resource "google_pubsub_subscription" "compute-subscription" {
   name  = "compute-subscription"
