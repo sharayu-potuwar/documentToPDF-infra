@@ -13,6 +13,12 @@ resource "google_storage_bucket" "raw-doc-bkt" {
   }
 }
 
+resource "google_storage_bucket_iam_member" "storage-member" {
+  bucket = google_storage_bucket.raw-doc-bkt.name
+  role = "roles/storage.objectViewer"
+  member = "serviceAccount:service-268852292565@gcp-sa-pubsub.iam.gserviceaccount.com"
+}
+
 resource "google_storage_bucket" "pdf-doc-bkt" {
   name          = "pdf-doc-bkt"
   location      = "us-central1"
