@@ -16,8 +16,8 @@ resource "google_pubsub_topic" "doc-topic" {
     }
     
   }
+  depends_on = [ google_storage_bucket_iam_member.storage-bucket-reader, google_storage_bucket_iam_member.storage-object-reader ]
 }
-
 
 
 resource "google_pubsub_subscription" "compute-subscription" {
