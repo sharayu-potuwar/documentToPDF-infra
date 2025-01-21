@@ -13,9 +13,15 @@ resource "google_storage_bucket" "raw-doc-bkt" {
   }
 }
 
-resource "google_storage_bucket_iam_member" "storage-member" {
+resource "google_storage_bucket_iam_member" "storage-bucket-reader" {
   bucket = google_storage_bucket.raw-doc-bkt.name
   role = "roles/storage.legacyBucketReader"
+  member = "serviceAccount:service-268852292565@gcp-sa-pubsub.iam.gserviceaccount.com"
+}
+
+resource "google_storage_bucket_iam_member" "storage-object-reader" {
+  bucket = google_storage_bucket.raw-doc-bkt.name
+  role = "roles/storage.legacyObjectReader"
   member = "serviceAccount:service-268852292565@gcp-sa-pubsub.iam.gserviceaccount.com"
 }
 
