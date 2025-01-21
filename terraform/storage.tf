@@ -15,7 +15,7 @@ resource "google_storage_bucket" "raw-doc-bkt" {
 
 resource "google_storage_bucket_iam_member" "storage-member" {
   bucket = google_storage_bucket.raw-doc-bkt.name
-  role = "roles/storage.objectViewer"
+  role = "roles/storage.legacyBucketReader"
   member = "serviceAccount:service-268852292565@gcp-sa-pubsub.iam.gserviceaccount.com"
 }
 
