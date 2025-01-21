@@ -69,6 +69,11 @@ resource "google_project_iam_member" "logs_writer" {
   member  = "serviceAccount:${google_service_account.cloudbuild_service_account.email}"
 }
 
+resource "google_project_iam_member" "cloudrun_permission" {
+  project = "gcp-devops-436118"
+  role    = "roles/run.admin"
+  member  = "serviceAccount:${google_service_account.cloudbuild_service_account.email}"
+}
 
 resource "google_project_iam_member" "artifact_access" {
   project = "gcp-devops-436118"
