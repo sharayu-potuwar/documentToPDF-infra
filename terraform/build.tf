@@ -38,7 +38,7 @@ resource "google_cloudbuildv2_connection" "my_connection" {
             oauth_token_secret_version = var.secret_data
         }
     }
-    depends_on = [google_secret_manager_secret_iam_policy.policy]
+    # depends_on = [google_secret_manager_secret_iam_policy.policy]
 }
 
 //Connecting a GitHub repository
