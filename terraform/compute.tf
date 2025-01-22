@@ -27,5 +27,5 @@ resource "google_cloud_run_v2_service" "default" {
       image = "us-docker.pkg.dev/cloudrun/container/hello" # Replace with newly created image gcr.io/<project_id>/pubsub
     }
   }
-  depends_on = [google_project_service.cloudrun_api]
+  # depends_on = [google_project_service.cloudrun_api]
 }
